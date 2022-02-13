@@ -2,7 +2,6 @@
   "name": "phaser3-vjoy-plugin-demo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "npx parcel index.html",
     "build": "npx parcel build index.html",
@@ -13,11 +12,14 @@
   "dependencies": {
     "dat.gui": "^0.7.7",
     "phaser": "^3.52.0",
-    "phaser3-vjoy-plugin": "^1.0.2"
+    "phaser3-vjoy-plugin": "^1.0.3"
   },
   "devDependencies": {
-    "parcel": "^1.12.4",
-    "parcel-plugin-asset-copier": "^1.1.0"
+    "parcel": "^2.3.1",
+    "parcel-plugin-static-files-copy": "^2.6.0",
+    "parcel-reporter-static-files-copy": "^1.3.4"
   },
-  "assetsPath": "public"
+  "staticFiles": {
+    "staticPath": "public"
+  }
 }

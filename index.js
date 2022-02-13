@@ -39,20 +39,15 @@ const gamePlayState = new Phaser.Class({
             device: 0 // 0 for mouse pointer (computer), 1 for touch pointer (mobile)
         });
 
-        this.input.on('pointerdown', this.joystick.create, this.joystick);
-        this.input.on('pointerup', this.joystick.remove, this.joystick);
-
         const gui = new dat.GUI();
-        gui.add(this.joystick.settings, 'singleDirection');
-        gui.add(this.joystick.settings, 'maxDistanceInPixels');
-        gui.add(this.joystick.settings, 'device', { Computer: 0, Mobile: 1 });
+        gui.add(this.joystick, 'singleDirection');
+        gui.add(this.joystick, 'maxDistanceInPixels');
+        gui.add(this.joystick, 'device', { Computer: 0, Mobile: 1 });
     },
 
     update: function() {
-        const cursors = this.joystick.getCursors();
         const speed = 0.2;
-
-        this.sprite.body.velocity.set(cursors.deltaX * speed, cursors.deltaY * speed);
+        this.sprite.body.velocity.set(this.joystick.deltaX * speed, this.joystick.deltaY * speed);
     },
 });
 
